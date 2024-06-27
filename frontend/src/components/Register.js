@@ -27,7 +27,7 @@ function Register() {
 
   return (
     <div className="container">
-      <h2>Register</h2>
+      <h2 className='header'>Register</h2>
       {error && <div style={{ color: 'red' }}>{error}</div>}
       <form onSubmit={handleSubmit}>
         <div>

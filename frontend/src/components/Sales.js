@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import SalesReport from './SalesReport'; // Import the SalesReport component
 
 function Sales() {
   const [sales, setSales] = useState([]);
@@ -52,7 +53,7 @@ function Sales() {
 
   return (
     <div className="container">
-      <h2>Sales Records</h2>
+      <h2 className="header">Sales Records</h2>
       {error && <div style={{ color: 'red' }}>{error}</div>}
       <form onSubmit={handleAddSale}>
         <div>
@@ -77,13 +78,18 @@ function Sales() {
           {loading ? 'Adding Sale...' : 'Add Sale'}
         </button>
       </form>
-      {loading ? <p>Loading sales...</p> : 
+      {loading ? (
+        <p>Loading sales...</p>
+      ) : (
         <ul>
           {sales.map((sale) => (
-            <li key={sale._id}>{sale.item}: ${sale.amount}</li>
+            <li key={sale._id}>
+              {sale.item}: ${sale.amount}
+            </li>
           ))}
         </ul>
-      }
+      )}
+      <SalesReport sales={sales} /> {}
     </div>
   );
 }

@@ -27,7 +27,7 @@ function Login() {
 
   return (
     <div className="container">
-      <h2>Login</h2>
+      <h2 className='header'>Login</h2>
       {error && <div style={{ color: 'red' }}>{error}</div>}
       <form onSubmit={handleSubmit}>
         <div>
